@@ -1,0 +1,49 @@
+.add-Records{
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190220/ourmid/pngtree-creative-synthesis-city-comic-real-estate-image_8675.jpg);
+}
+.add-Records::before{
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.add-Records .formSection{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    width: 60%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.add-Records .formSection .column1,.add-Records .formSection .column2{
+overflow: hidden;
+padding: 0px;
+}
+.add-Records .formSection .imageContainer{
+    height: 420px;
+    width: 100%;
+    overflow: hidden;
+}
+.add-Records .formSection .imageContainer img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.add-Records .formSection .column2{
+    position: relative;
+    height: 420px;
+}
+.add-Records .formSection form{
+    width: 80%;
+}
+.add-Records .formSection form h5{
+   text-align: center;
+   color: var(--main-theme-color);
+   margin-bottom: 20px;
+}

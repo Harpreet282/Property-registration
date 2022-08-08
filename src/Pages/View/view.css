@@ -1,0 +1,67 @@
+.view{
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    background-image: url(https://cdn2.hubspot.net/hubfs/457342/Choice%20Screening%20-%20Property%20Manager.jpg);
+}
+.view::before{
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.view .searchBarSection{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    width: 60%;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    padding: 40px;
+}
+.view .searchBarSection h2{
+    color: var(--main-theme-color);
+}
+.view .searchBarSection form .row{
+width: 100%;
+}
+.view .searchBarSection form .row input{
+    width: 100%;
+    border-radius: 25px;
+    border: 2px solid var(--alternate-theme-color);
+    color: var(--main-theme-color);
+    
+    }
+    .view .searchBarSection form .row button{
+        width: 100%;
+    border-radius: 25px;
+    background-color: var(--alternate-theme-color);
+    color:#fff;
+    font-weight: 500;
+        }
+        .view  .map-row .column .imgContainer{
+            position: relative;
+            height: 200px;
+            background-color: #dce7f5;
+            width: 100%;
+            overflow: hidden;
+            /* border: 1px solid var(--main-theme-color); */
+            border-radius: 8px;
+        }
+        .view  .map-row .column .imgContainer img{
+           height: 100%;
+           width: 100%;
+           object-fit: cover;
+        }
+        .view .map-row .column .imgContainer .text-container{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            color: var(--alternate-theme-color);
+        }

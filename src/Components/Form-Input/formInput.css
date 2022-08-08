@@ -1,0 +1,14 @@
+.form-input input{
+    border: none;
+    border-bottom: 2px solid var(--alternate-theme-color) !important;
+    font-size: 15px !important;
+    color: var(--main-theme-color) !important;
+    border-radius: 0px;
+    background-color: transparent;
+    height: 30px;
+    padding: 0px;
+    font-weight: 500;
+}
+.form-input input:focus{
+    box-shadow: none;
+}

@@ -1,0 +1,48 @@
+.ownership-page{
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    background-image: url(https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80);
+}
+.ownership-page::before{
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.ownership-page .formSection{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    width: 60%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.ownership-page .formSection .column1,.ownership-page .formSection .column2{
+overflow: hidden;
+padding: 0px;
+}
+.ownership-page .formSection .imageContainer{
+    height: 420px;
+    width: 100%;
+    overflow: hidden;
+}
+.ownership-page .formSection .imageContainer img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.ownership-page .formSection .column2{
+    position: relative;
+}
+.ownership-page .formSection form{
+    width: 80%;
+}
+.ownership-page .formSection form h5{
+   text-align: center;
+   color: var(--main-theme-color);
+   margin-bottom: 20px;
+}

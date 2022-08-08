@@ -1,0 +1,5 @@
+.form-label label{
+    margin-bottom: 0;
+    color: var(--alternate-theme-color);
+    font-weight: 500;
+}

@@ -1,0 +1,48 @@
+.create-user{
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    background-image: url(https://images.unsplash.com/photo-1599398766380-23b3144142c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGNvbW1lcmNpYWwlMjByZWFsJTIwZXN0YXRlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+}
+.create-user::before{
+    content: "";
+    display: block;
+    background: #0a0a0a94;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.create-user .formSection{
+    box-shadow: rgba(14, 2, 61, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    width: 60%;
+    overflow: hidden;
+    background-color: #fff;
+}
+.create-user .formSection .column1,.create-user .formSection .column2{
+overflow: hidden;
+padding: 0px;
+}
+.create-user .formSection .imageContainer{
+    height: 420px;
+    width: 100%;
+    overflow: hidden;
+}
+.create-user .formSection .imageContainer img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.create-user .formSection .column2{
+    position: relative;
+}
+.create-user .formSection form{
+    width: 80%;
+}
+.create-user .formSection form h5{
+   text-align: center;
+   color: var(--main-theme-color);
+   margin-bottom: 20px;
+}

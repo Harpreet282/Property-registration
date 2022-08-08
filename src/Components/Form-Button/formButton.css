@@ -1,0 +1,12 @@
+.form-button button{
+    background-color: var(--alternate-theme-color);
+    color: #fff !important;
+    border-radius: 25px;
+    font-weight: 500;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-button button:hover{
+    background-color: var(--main-theme-color);
+}
