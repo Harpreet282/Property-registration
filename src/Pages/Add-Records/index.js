@@ -16,7 +16,8 @@ const AddRecords = () => {
 
   const submitRecords=(e)=>{
     e.preventDefault();
- console.log('formData',recordsData)
+   console.log('formData',recordsData)
+ 
     }
 
   return (
