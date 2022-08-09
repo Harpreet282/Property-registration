@@ -6,12 +6,15 @@ import Navbar from '../Components/Navbar';
 import Ownership from '../Pages/Ownership';
 import CreateUser from '../Pages/Create-User';
 import AddAdmin from '../Pages/Add-Admin';
-
+import Login from '../Pages/Login';
+import { ProtectedRoutes,ProtectedRoutes2,superAdminProtectedRoutes } from './Protected-Routes';
 const Index = () => {
   return (
     <>
     <Navbar/>
 <Routes>
+<Route path="/login" element={<Login />} />
+
 <Route path="/" element={<View />} />
 <Route path="/addRecords" element={<AddRecords />} />
 <Route path="/ownership" element={<Ownership/>} />
