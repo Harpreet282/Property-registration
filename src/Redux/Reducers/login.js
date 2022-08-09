@@ -1,6 +1,6 @@
 const initialState = {
   authenticated: false,
-  userType: "",
+  userType: "admin",
 };
 
 const loginState = (state = initialState, action) => {

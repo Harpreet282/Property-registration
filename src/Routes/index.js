@@ -5,6 +5,7 @@ import View from '../Pages/View';
 import Navbar from '../Components/Navbar';
 import Ownership from '../Pages/Ownership';
 import CreateUser from '../Pages/Create-User';
+import AddAdmin from '../Pages/Add-Admin';
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
 <Route path="/addRecords" element={<AddRecords />} />
 <Route path="/ownership" element={<Ownership/>} />
 <Route path="/createUser" element={<CreateUser />} />
+<Route path="/addAdmin" element={<AddAdmin />} />
 </Routes>
     </>
   )

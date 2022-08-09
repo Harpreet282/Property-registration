@@ -1,8 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './navbar.css'
 import { NavLink } from "react-router-dom";
+import {  useSelector } from "react-redux";
 
 const Navbar = () => {
+
+  const userType = useSelector((state) => state.loginState.userType);
+  // console.log(userType,"usertype")
+  useEffect(()=>{
+  },[userType])
 
   return (
     <div className='navbarComponent'>
@@ -28,6 +34,14 @@ const Navbar = () => {
       <li className="nav-item">
         <NavLink className="nav-link" to='/createUser'>Create-User</NavLink>
       </li>
+{
+  userType==="super-admin"?
+  <li className="nav-item">
+  <NavLink className="nav-link" to='/addAdmin'>Add-Admin</NavLink>
+</li>
+:
+""
+}
     </ul>
   </div>
 </nav>
