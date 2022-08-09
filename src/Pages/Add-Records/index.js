@@ -24,7 +24,7 @@ const AddRecords = () => {
     <div className='add-Records'>
 <section className="formSection absolute-center">
 <div className="row">
-  <div className="col-md-12 column2">
+  <div className="col-md-12 column1">
   <form className='absolute-center' onSubmit={submitRecords}>
     <h5>Welcome to Land-Registration</h5>
 

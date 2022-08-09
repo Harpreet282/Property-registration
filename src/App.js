@@ -6,7 +6,7 @@ import {  useSelector } from "react-redux";
 
 function App() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
-console.log(isLogged,"logg")
+// console.log(isLogged,"logg")
 
 useEffect(()=>{
 },[isLogged])
@@ -18,7 +18,7 @@ useEffect(()=>{
   return (
     <div>
       {
-        isLogged? <Index/>: <Login/>
+        !isLogged? <Index/>: <Login/>
     }
      
     </div>
