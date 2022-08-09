@@ -1,13 +1,20 @@
 import Login from "./Pages/Login";
 import Index from "./Routes";
-import {  useSelector } from "react-redux";
+import {loadWeb3} from "../src/backend/LandRegistration"
 import { useEffect } from "react";
+import {  useSelector } from "react-redux";
 
 function App() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
 console.log(isLogged,"logg")
+
 useEffect(()=>{
 },[isLogged])
+
+useEffect(()=>{
+  loadWeb3();
+})
+
   return (
     <div>
       {

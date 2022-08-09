@@ -27,48 +27,64 @@ const AddRecords = () => {
   <div className="col-md-12 column2">
   <form className='absolute-center' onSubmit={submitRecords}>
     <h5>Welcome to Land-Registration</h5>
+
     <div className="form-group">
    <FormLabel content='Property-Address : '/>
-   <FormInput name="property-address" onChangeData={handleRecords} />
+   <FormInput name="areaAddress" onChangeData={handleRecords} />
   </div>
   <div className="form-group">
   <div className="row">
       <div className="col-md-6">
-      <FormLabel content='Property-Area : '/>
-      <FormInput name="property-area" onChangeData={handleRecords} />
+      <FormLabel content='Property-Area-Sqaure-Ft : '/>
+      <FormInput name="area_sq" onChangeData={handleRecords} />
       </div>
       <div className="col-md-6">
       <FormLabel content='Property-Price : '/>
-      <FormInput name="property-price" onChangeData={handleRecords} />
+      <FormInput name="landPrice" onChangeData={handleRecords} />
       </div>
     </div>
    
   </div>
   <div className="form-group">
-    <div className="row">
+  <div className="row">
       <div className="col-md-6">
-      <FormLabel content='State : '/>
-      <FormInput name="state" onChangeData={handleRecords} />
+      <FormLabel content='Current-Owner : '/>
+      <FormInput name="ownerName" onChangeData={handleRecords} />
       </div>
       <div className="col-md-6">
-      <FormLabel content='City : '/>
-      <FormInput name="city" onChangeData={handleRecords} />
+      <FormLabel content='Owner-Address : '/>
+      <FormInput name="ownerAddress" onChangeData={handleRecords} />
       </div>
     </div>
   </div>
- 
+  
+
+  <div className="form-group">
+  <div className="row">
+      <div className="col-md-6">
+      <FormLabel content='Previous-Owner: '/>
+      <FormInput name="ownerName" onChangeData={handleRecords} />
+      </div>
+      <div className="col-md-6">
+      <FormLabel content='Previous-Owner-Address : '/>
+      <FormInput name="purchasedBy" onChangeData={handleRecords} />
+      </div>
+    </div>
+  </div>
+
   <div className="form-group">
     <div className="row">
       <div className="col-md-6">
-      <FormLabel content='Current-Owner : '/>
-      <FormInput name="current-owner" onChangeData={handleRecords} />
+      <FormLabel content='MobileNumber : '/>
+      <FormInput name="mobile" onChangeData={handleRecords} />
       </div>
       <div className="col-md-6">
-      <FormLabel content='Purchased-by : '/>
-      <FormInput name="purchased-by" onChangeData={handleRecords} />
+      <FormLabel content='Pincode : '/>
+      <FormInput name="pincode" onChangeData={handleRecords} />
       </div>
     </div>
   </div>
+
  <FormButton content='Submit' />
 </form>
   </div>
