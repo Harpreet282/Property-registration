@@ -1,14 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >= 0.5.0 < 0.9.0;
 
-contract Adminwork{
+contract LandRegistration{
  
     uint private landscount;
     address public superAdmin;
     uint public totalAdmins;
     uint public _propertyId = landscount+1001;
-    
-
 
 struct Admin{
         address adminAddress;
@@ -29,12 +27,12 @@ struct Admin{
         
     }
     struct property{
-        string _address;
         uint area_sq;
         address purchasedBy;
         address ownerAddress;
         string areaAddress;
         string ownerName;
+        string previousOwner;
         uint mobile;
         uint landPrice;
         uint property_Id;
@@ -82,16 +80,6 @@ function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _tra
         newAdmin.transferP = _transP;
         newAdmin.addP = _addP;
     }
-
-
-       // check if it is admin
-    function isAdmin() external view returns(bool){
-        if(admins[msg.sender].adminAddress == msg.sender){
-            return true;
-        }
-        else return false;
-    }
-
   
     // User_1: set user profile
     function setUserProfile(address userAddress,string memory _fullName, string memory _email, uint256 _contact, string memory _residentialAddr) external onlyAdmin{
@@ -105,7 +93,7 @@ function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _tra
     }
 
        // Add property
-    function addProperty(address _ownerAddress,string memory _ownerName,address _purchasedBy,uint _pincode,uint _area, string memory _areaAddress,uint _mobile,uint _landPrice) public onlyAdmin{
+    function addProperty(string memory _previousOwner, address _ownerAddress,string memory _ownerName,address _purchasedBy,uint _pincode,uint _area, string memory _areaAddress,uint _mobile,uint _landPrice) public onlyAdmin{
         
         
 
@@ -114,7 +102,7 @@ function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _tra
         // UserProfile storage newUserProfile = userProfile[_propertyId];
 
         // address[] ownArr;
-
+        newproperty.previousOwner = _previousOwner;
         newproperty.ownerAddress = _ownerAddress;
         newproperty.ownerName = _ownerName;
         newproperty.purchasedBy = _purchasedBy;
@@ -157,13 +145,13 @@ function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _tra
 
 
 //Property Transfer
-    function transferProperty(uint Property_id,address _newOwnerAddress,string memory new_ownerName,uint new_mobile,uint new_landPrice) external onlyAdmin{
+    function transferProperty(string memory _previousOwner ,uint Property_id,address _newOwnerAddress,string memory new_ownerName,uint new_mobile,uint new_landPrice) external onlyAdmin{
         property storage newproperty = userProperty[Property_id];
         // newproperty.ownArr.push(new_User);
         newproperty.purchasedBy =newproperty.ownerAddress;
         newproperty.ownerAddress = _newOwnerAddress;
         newproperty.ownerName = new_ownerName;
-        
+        newproperty.previousOwner = _previousOwner;
         newproperty.mobile =  new_mobile;
         newproperty.landPrice = new_landPrice;
 
