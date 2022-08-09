@@ -1,6 +1,6 @@
 import Login from "./Pages/Login";
 import Index from "./Routes";
-import {loadWeb3} from "../src/backend/LandRegistration"
+import {loadWeb3,loadAccount,SignInMetamask} from "../src/backend/LandRegistration"
 import { useEffect } from "react";
 import {  useSelector } from "react-redux";
 

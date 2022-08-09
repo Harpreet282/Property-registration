@@ -20,7 +20,8 @@
     "truffle": "^5.5.25",
     "web-vitals": "^2.1.4",
     "web3": "^1.7.5",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "webpack": "^4.44.2"
   },
   "scripts": {
     "start": "react-scripts start",
