@@ -3,6 +3,7 @@ import './navbar.css'
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
   return (
     <div className='navbarComponent'>
 <nav className="navbar navbar-expand-lg fixed-top">
