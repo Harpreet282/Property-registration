@@ -2,7 +2,6 @@
 import Web3 from "web3";
 import React,{Components} from "react";
 
-
 import propertyRegisterJson from "contracts/PropertyRegistration.json";
 const web3Provider = new Web3(Web3.givenProvider);
 let selectedAccount;
@@ -11,7 +10,10 @@ let NewContract;
 const state = {}
 
 
+    
 async function loadContract() {
+    
+
   try {
     console.log(propertyRegisterJson,"propertyRegisterJson")
     // const propertyRegisteration = await propertyRegisterJson.json();
@@ -31,13 +33,13 @@ async function loadContract() {
 
 loadContract();
 
-async function SignInMetamask() {
+  async function SignInMetamask() {
   // Creating Instance Of Web3
   try {
     if (window.ethereum) {
       const web3Provider = new Web3(Web3.givenProvider);
       console.log(web3Provider);
-      let account = await window.ethereum.request({
+       account = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       console.log(account);
@@ -81,6 +83,8 @@ async function loadWeb3 () {
     try {
       // Request account access if needed
       const account = await window.ethereum.request({ method: "eth_accounts" });
+      await this.UpdateAcc()
+      selectedAccount = account[0]
       console.log(account); 
     } catch (error) {
       console.log("account_error", error);
@@ -103,7 +107,7 @@ async function loadWeb3 () {
 //Getter Functions
 async function getUserProfile(user_Address) {
   try {
-    const response = await loadContract.NewContract.methods
+    const response = await NewContract.methods
       .getUserProfile(user_Address)
       .call();
     return response;
@@ -111,9 +115,11 @@ async function getUserProfile(user_Address) {
     console.log("Get User Profile Error", error);
   }
 }
+
+
 async function getUserProperty(property_Id) {
   try {
-    const response = await loadContract.NewContract.methods
+    const response = await NewContract.methods
       .getpropertybyPID(property_Id)
       .call();
     return response;
@@ -132,10 +138,10 @@ async function addAdmin(
   transProp
 ) {
   try {
-    await loadContract.NewContract.methods
+    await NewContract.methods
       .addAdmin(adminAddress, name, city, district, state, addProp, transProp)
       .send({
-        from: SignInMetamask.account[0],
+        from: selectedAccount,
         gas: 0x93900,
       });
   } catch (error) {
@@ -155,7 +161,7 @@ async function addProperty(
   landPrice
 ) {
   try {
-    await loadContract.NewContract.methods
+    await NewContract.methods
       .addProperty(
         previousOwner,
         newownerAddress,
@@ -168,7 +174,7 @@ async function addProperty(
         landPrice
       )
       .send({
-        from: SignInMetamask.account[0],
+        from: selectedAccount,
         gas: 0x93900,
       });
   } catch (error) {
@@ -179,8 +185,8 @@ async function addProperty(
 
 async function addUser(userAddress,fullName,email,contact,residentialAddress){
     try {
-        await loadContract.NewContract.methods.addUser(userAddress,fullName,email,contact,residentialAddress).send({
-            from : SignInMetamask.account[0],
+        await NewContract.methods.addUser(userAddress,fullName,email,contact,residentialAddress).send({
+            from : selectedAccount,
             gas : 0x93900
         })
     } catch (error) {
@@ -190,8 +196,8 @@ async function addUser(userAddress,fullName,email,contact,residentialAddress){
 
 async function transferProperty(previousOwnerAdd,newOwnerAdd,newOwnerName,newOwnerPhone,newLandPrice){
     try {
-        await loadContract.NewContract.methods.transferProperty(previousOwnerAdd,newOwnerAdd,newOwnerName,newOwnerPhone,newLandPrice).send({
-            from : SignInMetamask.account[0],
+        await NewContract.methods.transferProperty(previousOwnerAdd,newOwnerAdd,newOwnerName,newOwnerPhone,newLandPrice).send({
+            from : selectedAccount,
             gas : 0x93900
         })
 
@@ -199,6 +205,9 @@ async function transferProperty(previousOwnerAdd,newOwnerAdd,newOwnerName,newOwn
         console.log("transferProperty Error",error);
     }
 }
+
+
+
 
 export {
   loadWeb3,
