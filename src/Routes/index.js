@@ -13,14 +13,19 @@ const Index = () => {
     <>
     <Navbar/>
 <Routes>
-<Route path="/login" element={<Login />} />
 
+<Route element={<ProtectedRoutes2 />}>
+<Route path="/login" element={<Login />} />
+</Route>
+
+{/* <Route element={<ProtectedRoutes />}> */}
 <Route path="/" element={<View />} />
 <Route path="/addRecords" element={<AddRecords />} />
 <Route path="/ownership" element={<Ownership/>} />
 <Route path="/createUser" element={<CreateUser />} />
 <Route path="/addAdmin" element={<AddAdmin />} />
 </Routes>
+{/* </Route> */}
     </>
   )
 }

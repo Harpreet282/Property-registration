@@ -3,6 +3,25 @@ const web3Provider = new Web3(Web3.givenProvider);
 let selectedAccount;
 let NewContract ;
 
+async function loadContract (){
+  try {
+    const todojson = await fetch("/build/contracts/LandRegistration.json");
+    const todolist = await todojson.json();
+    const networkid = Object.keys(todolist.networks)[0];
+    const contractAddress = todolist.networks[networkid].address;
+    //  Creating Contract Instance For Solidity functions
+     NewContract = new web3Provider.eth.Contract(
+      todolist.abi,
+      contractAddress
+    );
+    console.log(NewContract, "newcontract");
+  } catch (error) {
+    console.log("load_contract_error", error);
+  }
+};
+
+loadContract();
+
 async function SignInMetamask () {
   // Creating Instance Of Web3
   try {
@@ -12,7 +31,10 @@ async function SignInMetamask () {
       let account = await window.ethereum.request({ method: "eth_requestAccounts" });
       console.log(account);
       selectedAccount = account[0];
-      
+
+      const result = await NewContract.methods.bothAdmins().send();
+      console.log(result,"resultt contract");
+
     } else {
       //If Metamask Not Installed Or Not Connected
       window.alert("please connect metamask");
@@ -32,6 +54,10 @@ async function loadWeb3 () {
     }
   };
 
+
+
+
+
   async function loadAccount () {
     try {
       // Request account access if needed
@@ -41,23 +67,7 @@ async function loadWeb3 () {
       console.log("account_error", error);
     }
   };
-
- async function loadContract (){
-    try {
-      const todojson = await fetch("/build/contracts/LandRegistration.json");
-      const todolist = await todojson.json();
-      const networkid = Object.keys(todolist.networks)[0];
-      const contractAddress = todolist.networks[networkid].address;
-      //  Creating Contract Instance For Solidity functions
-       NewContract = new web3Provider.eth.Contract(
-        todolist.abi,
-        contractAddress
-      );
-      console.log(NewContract, "newcontract");
-    } catch (error) {
-      console.log("load_contract_error", error);
-    }
-  };
+ 
 
   async function UpdateAcc () {
     // If User Change his Account
