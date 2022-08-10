@@ -1,17 +1,18 @@
 import Web3 from "web3"
+import propertyRegisterJson from "contracts/PropertyRegistration.json";
 const web3Provider = new Web3(Web3.givenProvider);
 let selectedAccount;
 let NewContract ;
 
 async function loadContract (){
   try {
-    const todojson = await fetch("/build/contracts/LandRegistration.json");
-    const todolist = await todojson.json();
-    const networkid = Object.keys(todolist.networks)[0];
-    const contractAddress = todolist.networks[networkid].address;
+    console.log(propertyRegisterJson,"propertyRegisterJson")
+    // const propertyRegisteration = await propertyRegisterJson.json();
+    const networkid = Object.keys(propertyRegisterJson.networks)[0];
+    const contractAddress = propertyRegisterJson.networks[networkid].address;
     //  Creating Contract Instance For Solidity functions
      NewContract = new web3Provider.eth.Contract(
-      todolist.abi,
+      propertyRegisterJson.abi,
       contractAddress
     );
     console.log(NewContract, "newcontract");
@@ -32,9 +33,9 @@ async function SignInMetamask () {
       console.log(account);
       selectedAccount = account[0];
 
-      const result = await NewContract.methods.bothAdmins().send();
-      console.log(result,"resultt contract");
-
+      const AdminCheck = await NewContract.methods.bothAdminsCheck(selectedAccount).call();
+      console.log(AdminCheck,"admin checked");
+      
     } else {
       //If Metamask Not Installed Or Not Connected
       window.alert("please connect metamask");
@@ -87,7 +88,8 @@ async function loadWeb3 () {
     loadWeb3,
     loadAccount,
     loadContract,
-    SignInMetamask
+    SignInMetamask,
+    UpdateAcc
 
   }
   

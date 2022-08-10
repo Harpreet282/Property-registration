@@ -22,7 +22,8 @@
     "web-vitals": "^2.1.4",
     "web3": "^1.7.5",
     "webpack": "^4.44.2",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "contracts":"file:./build/contracts"
   },
   "scripts": {
     "start": "react-scripts start",
