@@ -2,19 +2,20 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import AddRecords from '../Pages/Add-Records';
 import View from '../Pages/View';
-import Navbar from '../Components/Navbar';
 import Ownership from '../Pages/Ownership';
 import CreateUser from '../Pages/Create-User';
 import AddAdmin from '../Pages/Add-Admin';
 import Login from '../Pages/Login';
 // import { ProtectedRoutes,ProtectedRoutes2,superAdminProtectedRoutes } from './Protected-Routes';
+
+
 const Index = () => {
   return (
     <>
-    <Navbar/>
 <Routes>
 
 {/* <Route element={<ProtectedRoutes2 />}> */}
+
 <Route path="/login" element={<Login />} />
 {/* </Route> */}
 
@@ -24,8 +25,9 @@ const Index = () => {
 <Route path="/ownership" element={<Ownership/>} />
 <Route path="/createUser" element={<CreateUser />} />
 <Route path="/addAdmin" element={<AddAdmin />} />
-</Routes>
 {/* </Route> */}
+
+</Routes>
     </>
   )
 }

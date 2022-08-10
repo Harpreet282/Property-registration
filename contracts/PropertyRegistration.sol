@@ -68,7 +68,7 @@ modifier SuperOrAdmin(){
     }
 
 
-function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _transP,string memory _name,string memory _district, string memory _city) external onlySuperAdmin{
+function addAdmin(address _adminAddr,string memory _name, string memory _city,string memory _district, string memory _state, bool _addP,bool _transP) external onlySuperAdmin{
         Admin storage newAdmin = admins[_adminAddr];
         totalAdmins++;
 
