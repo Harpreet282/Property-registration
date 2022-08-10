@@ -43,8 +43,6 @@ async function SignInMetamask() {
       console.log(account);
       selectedAccount = account[0];
 
-
-
       const AdminCheck = await NewContract.methods.bothAdminsCheck(selectedAccount).call();
       console.log(AdminCheck,"admin checked");
 
@@ -90,6 +88,7 @@ async function loadWeb3 () {
 
   async function UpdateAcc () {
     // If User Change his Account
+    
     try {
       await window.ethereum.on("accountsChanged", async function (accounts) {
         console.log(accounts, "account changed");
