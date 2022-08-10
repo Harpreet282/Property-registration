@@ -157,17 +157,19 @@ function addAdmin(address _adminAddr, string memory _state, bool _addP,bool _tra
 
     }
 
-function bothAdmins() public view returns(string memory,bool){
+function bothAdminsCheck(address _address) public view returns(string memory){
 
-            if(superAdmin == msg.sender){
-                return ("isSuperAdmin",true);
-            }else if(admins[msg.sender].adminAddress == msg.sender){
-                return ("isAdmin",true);
+            if(superAdmin == _address){
+                return ("isSuperAdmin");
+            }else if(admins[_address].adminAddress == _address){
+                return ("isAdmin");
             }else{
-                return ("User is bot Authenticated",false);
+                return ("User Is Not Authenticated");
             }
 }
-
+function getSuperAdmin() public view returns(address){  
+  return superAdmin;
+}
     
 }
 

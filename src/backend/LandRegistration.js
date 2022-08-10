@@ -7,12 +7,12 @@ let NewContract ;
 async function loadContract (){
   try {
     console.log(propertyRegisterJson,"propertyRegisterJson")
-    const propertyRegisteration = await propertyRegisterJson.json();
-    const networkid = Object.keys(propertyRegisteration.networks)[0];
-    const contractAddress = propertyRegisteration.networks[networkid].address;
+    // const propertyRegisteration = await propertyRegisterJson.json();
+    const networkid = Object.keys(propertyRegisterJson.networks)[0];
+    const contractAddress = propertyRegisterJson.networks[networkid].address;
     //  Creating Contract Instance For Solidity functions
      NewContract = new web3Provider.eth.Contract(
-      propertyRegisteration.abi,
+      propertyRegisterJson.abi,
       contractAddress
     );
     console.log(NewContract, "newcontract");
@@ -33,9 +33,9 @@ async function SignInMetamask () {
       console.log(account);
       selectedAccount = account[0];
 
-      const result = await NewContract.methods.bothAdmins().send();
-      console.log(result,"resultt contract");
-
+      const AdminCheck = await NewContract.methods.bothAdminsCheck(selectedAccount).call();
+      console.log(AdminCheck,"admin checked");
+      
     } else {
       //If Metamask Not Installed Or Not Connected
       window.alert("please connect metamask");
@@ -88,7 +88,8 @@ async function loadWeb3 () {
     loadWeb3,
     loadAccount,
     loadContract,
-    SignInMetamask
+    SignInMetamask,
+    UpdateAcc
 
   }
   
