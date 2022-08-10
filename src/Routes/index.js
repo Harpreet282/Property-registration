@@ -7,16 +7,16 @@ import Ownership from '../Pages/Ownership';
 import CreateUser from '../Pages/Create-User';
 import AddAdmin from '../Pages/Add-Admin';
 import Login from '../Pages/Login';
-import { ProtectedRoutes,ProtectedRoutes2,superAdminProtectedRoutes } from './Protected-Routes';
+// import { ProtectedRoutes,ProtectedRoutes2,superAdminProtectedRoutes } from './Protected-Routes';
 const Index = () => {
   return (
     <>
     <Navbar/>
 <Routes>
 
-<Route element={<ProtectedRoutes2 />}>
+{/* <Route element={<ProtectedRoutes2 />}> */}
 <Route path="/login" element={<Login />} />
-</Route>
+{/* </Route> */}
 
 {/* <Route element={<ProtectedRoutes />}> */}
 <Route path="/" element={<View />} />
