@@ -23,7 +23,7 @@
     "web3": "^1.7.5",
     "webpack": "^4.44.2",
     "yup": "^0.32.11",
-    "contracts":"file:./build/contracts"
+    "contracts":"file:./contractBuild/build"
   },
   "scripts": {
     "start": "react-scripts start",

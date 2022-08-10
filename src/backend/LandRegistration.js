@@ -35,6 +35,8 @@ async function SignInMetamask () {
 
       const AdminCheck = await NewContract.methods.bothAdminsCheck(selectedAccount).call();
       console.log(AdminCheck,"admin checked");
+
+      return AdminCheck
       
     } else {
       //If Metamask Not Installed Or Not Connected
