@@ -1,21 +1,26 @@
+
 import Web3 from "web3";
 import React,{Components} from "react";
+
+
+import propertyRegisterJson from "contracts/PropertyRegistration.json";
 const web3Provider = new Web3(Web3.givenProvider);
 let selectedAccount;
 let NewContract;
 
-
+const state = {}
 
 
 async function loadContract() {
   try {
-    const todojson = await fetch("/build/contracts/LandRegistration.json");
-    const todolist = await todojson.json();
-    const networkid = Object.keys(todolist.networks)[0];
-    const contractAddress = todolist.networks[networkid].address;
+    console.log(propertyRegisterJson,"propertyRegisterJson")
+    // const propertyRegisteration = await propertyRegisterJson.json();
+    const networkid = Object.keys(propertyRegisterJson.networks)[0];
+    const contractAddress = propertyRegisterJson.networks[networkid].address;
     //  Creating Contract Instance For Solidity functions
-    const NewContract = new web3Provider.eth.Contract(
-      todolist.abi,
+
+     NewContract = new web3Provider.eth.Contract(
+      propertyRegisterJson.abi,
       contractAddress
     );
     console.log(NewContract, "newcontract");
@@ -38,8 +43,12 @@ async function SignInMetamask() {
       console.log(account);
       selectedAccount = account[0];
 
-      const result = await NewContract.methods.bothAdmins().send();
-      console.log(result, "resultt contract");
+
+
+      const AdminCheck = await NewContract.methods.bothAdminsCheck(selectedAccount).call();
+      console.log(AdminCheck,"admin checked");
+      
+
     } else {
       //If Metamask Not Installed Or Not Connected
       window.alert("please connect metamask");
@@ -47,39 +56,48 @@ async function SignInMetamask() {
   } catch (error) {
     console.log("login_fun_error", error);
   }
-}
 
-async function loadWeb3() {
-  // Creating Instance Of Web3
-  if (window.ethereum) {
-    console.log(web3Provider);
-  } else {
-    //If Metamask Not Installed Or Not Connected
-    window.alert("please connect metamask");
-  }
-}
+};
 
-async function loadAccount() {
-  try {
-    // Request account access if needed
-    const account = await window.ethereum.request({ method: "eth_accounts" });
-    console.log(account);
-  } catch (error) {
-    console.log("account_error", error);
-  }
-}
 
-async function UpdateAcc() {
-  // If User Change his Account
-  try {
-    await window.ethereum.on("accountsChanged", async function (accounts) {
-      console.log(accounts, "account changed");
-      selectedAccount = accounts[0];
-    });
-  } catch (error) {
-    console.log("Update_Acc_error", error);
-  }
-}
+
+async function loadWeb3 () {
+    // Creating Instance Of Web3
+    if (window.ethereum) {
+      console.log(web3Provider);
+    } else {
+      //If Metamask Not Installed Or Not Connected
+      window.alert("please connect metamask");
+    }
+  };
+
+
+
+
+
+  async function loadAccount () {
+    try {
+      // Request account access if needed
+      const account = await window.ethereum.request({ method: "eth_accounts" });
+      console.log(account); 
+    } catch (error) {
+      console.log("account_error", error);
+    }
+  };
+ 
+
+  async function UpdateAcc () {
+    // If User Change his Account
+    try {
+      await window.ethereum.on("accountsChanged", async function (accounts) {
+        console.log(accounts, "account changed");
+        selectedAccount = accounts[0];  
+      });
+    } catch (error) {
+      console.log("Update_Acc_error", error);
+    }
+  };
+
 //Getter Functions
 async function getUserProfile(user_Address) {
   try {

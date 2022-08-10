@@ -1,5 +1,5 @@
-const Property_Registration = artifacts.require("PropertyRegistration");
+const PropertyRegistration = artifacts.require("PropertyRegistration");
 
 module.exports = function(deployer) {
-  deployer.deploy(Property_Registration);
+  deployer.deploy(PropertyRegistration);
 };

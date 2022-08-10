@@ -3,6 +3,7 @@ import Index from "./Routes";
 import {loadWeb3,loadAccount,SignInMetamask} from "../src/backend/LandRegistration"
 import { useEffect } from "react";
 import {  useSelector } from "react-redux";
+import Navbar from "./Components/Navbar";
 
 function App() {
   const isLogged = useSelector((state) => state.loginState.authenticated);
@@ -18,7 +19,10 @@ useEffect(()=>{
   return (
     <div>
       {
-       isLogged? <Index/>: <Login/>
+        isLogged? <>
+        <Navbar/>
+        <Index/>
+        </>: <Login/>
     }
      
     </div>
