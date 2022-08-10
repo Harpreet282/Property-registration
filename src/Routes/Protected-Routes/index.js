@@ -41,4 +41,23 @@ function ProtectedRoutes2() {
 }
 
 
-export { ProtectedRoutes, ProtectedRoutes2 };
+function superAdminProtectedRoutes() {
+  const [isLog, setIsLog] = useState("");
+  const isLogged = useSelector((state) => state.loginState.authenticated);
+
+  useEffect(() => {
+    setIsLog(isLogged);
+  });
+
+  return (
+    <>
+      {isLog === "" ? (
+       ""
+      ) : (
+        <div>{!isLogged ? <Outlet /> : <Navigate to="/" />}</div>
+      )}
+    </>
+  );
+}
+
+export { ProtectedRoutes, ProtectedRoutes2,superAdminProtectedRoutes };

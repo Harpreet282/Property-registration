@@ -18,7 +18,7 @@ useEffect(()=>{
   return (
     <div>
       {
-        !isLogged? <Index/>: <Login/>
+       isLogged? <Index/>: <Login/>
     }
      
     </div>
