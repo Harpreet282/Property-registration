@@ -42,9 +42,9 @@ async function UpdateAcc() {
   } catch (error) {
     console.log("Update_Acc_error", error);
   }
-};
+}
 
-UpdateAcc()
+UpdateAcc();
 
 async function SignInMetamask() {
   // Creating Instance Of Web3
